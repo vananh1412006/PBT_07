@@ -40,3 +40,18 @@ let a = 1;
     console.log("Trong block:", a); // Kết quả: 2
 }
 console.log("Ngoài block:", a); // Kết quả: 1
+
+// ==========================================
+// CÂU A2: KIỂM CHỨNG DATA TYPES & COERCION
+// ==========================================
+console.log("\n--- CÂU A2 RUNTIME CHECK ---");
+console.log("typeof null:", typeof null);              
+console.log("typeof undefined:", typeof undefined);         
+console.log("typeof NaN:", typeof NaN);              
+console.log('"5" + 3:', "5" + 3);                 
+console.log('"5" - 3:', "5" - 3);                 
+console.log('"5" * "3":', "5" * "3");              
+console.log("true + true:", true + true);            
+console.log("[] + []:", [] + []);                
+console.log("[] + {}:", [] + {});                
+console.log("{} + []:", {} + []);
