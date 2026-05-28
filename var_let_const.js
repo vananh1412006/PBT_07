@@ -68,3 +68,16 @@ console.log('NaN == NaN:', NaN == NaN);
 console.log('0 == false:', 0 == false);             
 console.log('0 === false:', 0 === false);            
 console.log('"" == false:', "" == false);
+
+// ==========================================
+// CÂU A4: TRUTHY & FALSY
+// ==========================================
+console.log("\n--- CÂU A4 RUNTIME CHECK ---");
+if ("0") console.log("A");           
+if ("") console.log("B");            
+if ([]) console.log("C");            
+if ({}) console.log("D");            
+if (null) console.log("E");          
+if (0) console.log("F");             
+if (-1) console.log("G");            
+if (" ") console.log("H");

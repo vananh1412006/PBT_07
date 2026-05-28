@@ -72,3 +72,33 @@
 1. **Tránh bug ngầm do ép kiểu tự động (Type Coercion):** Toán tử `==` tự động ép kiểu các vế một cách khó lường (như vế chuỗi rỗng `"" == false` lại ra `true`), rất dễ gây ra những lỗi logic cực kỳ khó tìm trong dự án thực tế.
 2. **Tính minh bạch và rõ ràng:** Sử dụng `===` bắt buộc lập trình viên phải kiểm soát chặt chẽ kiểu dữ liệu đầu vào. Code trở nên tường minh, dễ đọc và dễ bảo trì hơn.
 3. **Hiệu năng:** `===` không tốn thời gian thực hiện các bước ép kiểu ngầm định như `==`.
+
+## Câu A4 — Truthy & Falsy
+
+### 1. Danh sách TẤT CẢ các giá trị Falsy trong JavaScript
+Trong JavaScript, chỉ có duy nhất **8 giá trị** dưới đây được coi là **Falsy** (khi đưa vào điều kiện `if` sẽ bị tính là `false`):
+1. `false` (chính bản thân nó)
+2. `0` (số không)
+3. `-0` (số không âm)
+4. `0n` (BigInt không)
+5. `""` hoặc `''` hoặc `ReferenceError` (chuỗi rỗng)
+6. `null`
+7. `undefined`
+8. `NaN` (Not a Number)
+
+*Lưu ý: Tất cả các giá trị nằm ngoài danh sách 8 giá trị này thì ĐỀU LÀ TRUTHY (tính là `true`), bao gồm cả mảng rỗng `[]` và đối tượng rỗng `{}`.*
+
+---
+
+### 2. Dự đoán và giải thích kết quả chạy điều kiện `if`
+
+* `if ("0") console.log("A");` $\rightarrow$ **CÓ IN "A"** (Vì `"0"` là một chuỗi có ký tự, thuộc nhóm Truthy).
+* `if ("") console.log("B");` $\rightarrow$ **KHÔNG IN** (Vì `""` là chuỗi rỗng, thuộc nhóm Falsy).
+* `if ([]) console.log("C");` $\rightarrow$ **CÓ IN "C"** (Vì tất cả các Object/Array trong JS kể cả rỗng đều là Truthy).
+* `if ({}) console.log("D");` $\rightarrow$ **CÓ IN "D"** (Tương tự, đối tượng rỗng vẫn là Truthy).
+* `if (null) console.log("E");` $\rightarrow$ **KHÔNG IN** (Vì `null` thuộc nhóm Falsy).
+* `if (0) console.log("F");` $\rightarrow$ **KHÔNG IN** (Vì số `0` thuộc nhóm Falsy).
+* `if (-1) console.log("G");` $\rightarrow$ **CÓ IN "G"** (Chỉ có số `0` là Falsy, các số khác `0` như `-1` đều là Truthy).
+* `if (" ") console.log("H");` $\rightarrow$ **CÓ IN "H"** (Chuỗi có một dấu cách không phải chuỗi rỗng, thuộc nhóm Truthy).
+
+**Kết quả in ra màn hình cuối cùng sẽ là:** `A`, `C`, `D`, `G`, `H`.
