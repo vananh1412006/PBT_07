@@ -102,3 +102,13 @@ Trong JavaScript, chỉ có duy nhất **8 giá trị** dưới đây được c
 * `if (" ") console.log("H");` $\rightarrow$ **CÓ IN "H"** (Chuỗi có một dấu cách không phải chuỗi rỗng, thuộc nhóm Truthy).
 
 **Kết quả in ra màn hình cuối cùng sẽ là:** `A`, `C`, `D`, `G`, `H`.
+
+## Câu A5 — Template Literals
+
+### Viết lại 3 cách nối chuỗi bằng Template Literals (Backtick)
+
+#### Cách 1:
+* **Gốc:** `var greeting = "Xin chào " + name + "! Bạn " + age + " tuổi.";`
+* **Sửa lại:**
+```javascript
+var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;

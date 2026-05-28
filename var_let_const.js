@@ -81,3 +81,25 @@ if (null) console.log("E");
 if (0) console.log("F");             
 if (-1) console.log("G");            
 if (" ") console.log("H");
+
+// ==========================================
+// CÂU A5: TEMPLATE LITERALS
+// ==========================================
+console.log("\n--- CÂU A5 RUNTIME CHECK ---");
+
+// Khai báo biến giả lập để chạy không lỗi
+var name = "Hà Mỹ", age = 20, userId = "12345", page = 2;
+var title = "Sản phẩm HOT", description = "Mô tả sản phẩm", price = 150000;
+
+var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+var url = `https://api.example.com/users/${userId}/orders?page=${page}`;
+var html = `
+<div class="card">
+    <h2>${title}</h2>
+    <p>${description}</p>
+    <span>Giá: ${price}đ</span>
+</div>`;
+
+console.log("Cách 1:", greeting);
+console.log("Cách 2:", url);
+console.log("Cách 3:", html);
