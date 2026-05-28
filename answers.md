@@ -49,3 +49,26 @@
 * `typeof null` trả về `"object"` là một lỗi thiết kế lịch sử (bug) từ phiên bản JavaScript đầu tiên nhưng không thể sửa vì sợ hỏng các hệ thống web cũ.
 * `typeof NaN` (Not a Number) là `"number"` vì về mặt kỹ thuật, nó đại diện cho một giá trị số học không hợp lệ.
 * `true + true` bằng `2` vì khi làm toán, giá trị Boolean `true` bị ép kiểu thành số `1` ($1 + 1 = 2$).
+
+## Câu A3 — So sánh == vs ===
+
+### 1. Dự đoán Kết quả (true / false)
+* `5 == "5"` $\rightarrow$ `true` (Do `==` chỉ so sánh giá trị, chuỗi `"5"` bị ép kiểu thành số `5`)
+* `5 === "5"` $\rightarrow$ `false` (Do `===` so sánh cả giá trị và kiểu dữ liệu: Number khác String)
+* `null == undefined` $\rightarrow$ `true` (Đây là quy tắc đặc biệt trong đặc tả của JavaScript)
+* `null === undefined` $\rightarrow$ `false` (Vì kiểu dữ liệu khác nhau: Null khác Undefined)
+* `NaN == NaN` $\rightarrow$ `false` (Quy tắc đặc biệt: `NaN` không bao giờ bằng chính nó)
+* `0 == false` $\rightarrow$ `true` (Do `false` bị ép kiểu thành số `0`)
+* `0 === false` $\rightarrow$ `false` (Vì kiểu dữ liệu khác nhau: Number khác Boolean)
+* `"" == false` $\rightarrow$ `true` (Cả chuỗi rỗng `""` và `false` đều bị ép kiểu về số `0`)
+
+---
+
+### 2. Quy tắc cốt lõi: Nên dùng == hay ===? Tại sao?
+
+**Lời khuyên:** Từ giờ trở đi, chúng ta **luôn luôn nên ưu tiên sử dụng toán tử `===` (so sánh nghiêm ngặt)** thay vì `==` (so sánh lỏng lẻo).
+
+**Tại sao?**
+1. **Tránh bug ngầm do ép kiểu tự động (Type Coercion):** Toán tử `==` tự động ép kiểu các vế một cách khó lường (như vế chuỗi rỗng `"" == false` lại ra `true`), rất dễ gây ra những lỗi logic cực kỳ khó tìm trong dự án thực tế.
+2. **Tính minh bạch và rõ ràng:** Sử dụng `===` bắt buộc lập trình viên phải kiểm soát chặt chẽ kiểu dữ liệu đầu vào. Code trở nên tường minh, dễ đọc và dễ bảo trì hơn.
+3. **Hiệu năng:** `===` không tốn thời gian thực hiện các bước ép kiểu ngầm định như `==`.

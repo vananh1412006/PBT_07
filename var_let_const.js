@@ -55,3 +55,16 @@ console.log("true + true:", true + true);
 console.log("[] + []:", [] + []);                
 console.log("[] + {}:", [] + {});                
 console.log("{} + []:", {} + []);
+
+// ==========================================
+// CÂU A3: SO SÁNH == VS ===
+// ==========================================
+console.log("\n--- CÂU A3 RUNTIME CHECK ---");
+console.log('5 == "5":', 5 == "5");                
+console.log('5 === "5":', 5 === "5");               
+console.log('null == undefined:', null == undefined);       
+console.log('null === undefined:', null === undefined);      
+console.log('NaN == NaN:', NaN == NaN);             
+console.log('0 == false:', 0 == false);             
+console.log('0 === false:', 0 === false);            
+console.log('"" == false:', "" == false);
