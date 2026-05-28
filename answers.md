@@ -112,3 +112,21 @@ Trong JavaScript, chỉ có duy nhất **8 giá trị** dưới đây được c
 * **Sửa lại:**
 ```javascript
 var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+
+# PHẦN C — SUY LUẬN (20 điểm)
+
+## Câu C1 (10đ) — Debug JavaScript
+
+Qua quá trình rà soát và phân tích mã nguồn, em đã tìm ra chính xác **6 lỗi** (bao gồm cả lỗi cú pháp, lỗi logic và lỗi bất đồng bộ ẩn). Dưới đây là danh sách chi tiết:
+
+### 1. Danh sách 6 lỗi, giải thích và cách sửa
+
+#### ❌ Lỗi 1: Thiếu dấu chấm phẩy và dấu đóng hàm (Cú pháp)
+* **Vị trí:** Dòng cuối cùng của hàm `return giaSauGiam}`.
+* **Giải thích:** Thiếu dấu chấm phẩy `;` chốt câu lệnh và viết dính liền dấu đóng ngoặc nhọn `}` mà không xuống dòng, khiến code bị rối, không chuẩn convention.
+* **Cách sửa:** Sửa thành:
+  ```javascript
+  return giaSauGiam;
+  }
+
+  

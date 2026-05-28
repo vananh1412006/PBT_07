@@ -103,3 +103,33 @@ var html = `
 console.log("Cách 1:", greeting);
 console.log("Cách 2:", url);
 console.log("Cách 3:", html);
+
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ";
+    }
+    
+    let giamGia = (giaBan * phanTramGiam) / 100;
+    let giaSauGiam = giaBan - giamGia;
+    
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+    
+    return giaSauGiam;
+}
+
+// Chạy thử nghiệm các trường hợp (Test cases)
+const gia = tinhGiaGiamGia(100000, 20);
+console.log("Giá sau giảm: " + gia + "đ"); // Kết quả: 80000đ
+
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log("Giá: " + gia2); // Kết quả: Phần trăm giảm không hợp lệ
+
+// Vòng lặp sửa bằng LET để sửa lỗi bất đồng bộ
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i);
+    }, 1000);
+}
+// Kết quả sau 1 giây: Item 0, Item 1, Item 2, Item 3, Item 4
